@@ -1,0 +1,115 @@
+.heroe-card {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 1rem 0rem;
+    color: #fff;
+    min-height: 550px;
+    position: relative;
+    overflow: hidden;
+
+    &__content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 4rem;
+    }
+
+    &__like-name {
+        display: flex;
+        position: relative;
+        h3 {
+            font-size: 3rem;
+        }
+    }
+
+    &__box-like-dislike {
+        position: absolute;
+        left: -64px;
+        top: 11px;
+        padding: .5rem;
+    }
+
+    img {
+        width: 35px;
+    }
+
+    .percent-votes {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        width: 100%;
+        &__likes,
+        &__dislikes {
+            padding: .6rem 1rem;
+        }
+
+        &__likes{
+            background-color: #00aca4a6;
+        }
+        &__dislikes{
+            background-color: #ffa200a9;
+        }
+        img {
+            width: 20px;
+        }
+        small{
+            font-size: 1.3rem;
+        }
+    }
+    &__detalle {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        a {
+            display: block;
+            text-decoration: none;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: .5rem 3rem;
+            transition: all .3s ease-in-out;
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.788);
+                color: #191919;
+            }
+        }
+        span {
+            width: 110px;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+    }
+}
+
+// @media only screen and (min-width: 768) and (max-width: 991px){
+//     .heroe-card__detalle {
+//         a {
+//             padding: 0.5rem 2rem;
+//         }
+//     }
+// }
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .heroe-card__detalle a {
+        display: block;
+        width: 100%;
+        padding: 0.5rem 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .heroe-card__detall span {
+        display: block;
+    }
+}
+
+
+.up {
+    background-color: #00ACA4;
+}
+
+.down {
+    background-color: #FFA200;
+}

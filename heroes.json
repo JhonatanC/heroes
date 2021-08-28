@@ -1,0 +1,54 @@
+{
+  "heroes": [
+    {
+      "id": 1,
+      "name": "Ironman",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente inventore asperiores.",
+      "image": "../../../assets/img/iroman.png",
+      "like": "89%",
+      "dislike": "13%",
+      "icon": "",
+      "state": "down"
+    },
+    {
+      "id": 2,
+      "name": "Superman",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente inventore asperiores.",
+      "image": "../../../assets/img/superman.png",
+      "like": "64",
+      "dislike": "36",
+      "icon": "../../../assets/icons/thumbs-up-solid.svg",
+      "state": "up"
+    },
+    {
+      "id": 3,
+      "name": "Thor",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente inventore asperiores.",
+      "image": "../../../assets/img/thor.png",
+      "like": "36",
+      "dislike": "64",
+      "icon": "../../../assets/icons/thumbs-down-solid.svg",
+      "state": "down"
+    },
+    {
+      "id": 4,
+      "name": "Batman",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente inventore asperiores.",
+      "image": "../../../assets/img/batman.png",
+      "like": "36",
+      "dislike": "64",
+      "icon": "../../../assets/icons/thumbs-down-solid.svg",
+      "state": "down"
+    },
+    {
+      "id": 5,
+      "name": "Sipiderman",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente inventore asperiores.",
+      "image": "../../../assets/img/spiderman.png",
+      "like": "36",
+      "dislike": "64",
+      "icon": "../../../assets/icons/thumbs-up-solid.svg",
+      "state": "up"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+<div class="hero">
+    <div class="container">
+        <div class="hero__logo-nav">
+            <div class="hero__logo">
+                <img src="../../../assets/img/logo.png" alt="">
+            </div>
+            <nav class="hero__items">
+                <ul>
+                    <li><a href="#">Heroes Anterioes</a></li>
+                    <li><a href="#">¿Cómo funciona?</a></li>
+                    <li><a href="#">Iniciar sesión</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 content-votes">
+                <div class="content-votes__blur">
+                    <p class="content-votes__opinion">Dinos tu opinión sobre <span>Ironman?</span></p>
+                    <p class="content-votes__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente inventore asperiores corrupti consequatur optio, officia voluptate tempore, dolorum expedita facere veritatis, vitae animi repellat iure molestias cumque. Odio, placeat quo.</p>
+                    <p class="content-votes__more-info"><a href="#"> Más Información </a></p>
+                    <p class="content-votes__qas">¿Cuál es tu voto?</p>
+                    <div class="content-votes__buttons">
+                        <button (click)="like(heroe)" class="content-votes__like btn btn-like">
+                            <img src="../../../assets/icons/thumbs-up-solid.svg" alt="Like">
+                        </button>
+                        <button (click)="dislike(heroe)" class="content-votes__dislike btn btn-dislike">
+                            <img src="../../../assets/icons/thumbs-down-solid.svg" alt="Like">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="percent-votes">
+        <div class="percent-votes__likes" [style.width]="heroe.like">
+            <img src="../../../assets/icons/thumbs-up-solid.svg" alt="Like"> <small> 88% </small>
+        </div>
+        <div class="percent-votes__dislikes" [style.width]="heroe.dislike">
+            <img src="../../../assets/icons/thumbs-down-solid.svg" alt="Like"> <small> 12% </small>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+
+    <h2>Super Heroes anterioes</h2>
+
+    <app-heroes-anterioes></app-heroes-anterioes>
+
+</div>

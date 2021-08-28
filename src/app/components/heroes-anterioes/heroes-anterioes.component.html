@@ -1,0 +1,25 @@
+<div class="row">
+    <div *ngFor="let heroe of heroes" class="col-md-6">
+        <div class="heroe-card" style="background-image: linear-gradient( -180deg , rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%), url( {{heroe.image}} );">
+            <div class="heroe-card__content">
+                <div class="heroe-card__like-name">
+                    <img [ngClass]="heroe.state == 'up' ? 'up' : 'down' " class="heroe-card__box-like-dislike" [src]="heroe.icon" alt="Like">
+                    <h3>{{ heroe.name }}</h3>
+                </div>
+                <p>{{ heroe.description }}</p>
+                <div class="heroe-card__detalle">
+                    <a href="">Ver detalle</a>
+                    <span>2 mes atrás en lorem dolor</span>
+                </div>
+                <div class="percent-votes">
+                    <div class="percent-votes__likes" [style.width]="heroe.like">
+                        <img src="../../../assets/icons/thumbs-up-solid.svg" alt="Like"> <small> {{ heroe.like }} </small>
+                    </div>
+                    <div class="percent-votes__dislikes" [style.width]="heroe.dislike">
+                        <img src="../../../assets/icons/thumbs-down-solid.svg" alt="Like"> <small> {{ heroe.dislike }} </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
