@@ -5,8 +5,8 @@
       "name": "Ironman",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente inventore asperiores.",
       "image": "../../../assets/img/iroman.png",
-      "like": "42",
-      "dislike": "58",
+      "like": "41",
+      "dislike": "59",
       "icon": "",
       "state": "down"
     },

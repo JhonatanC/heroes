@@ -1,3 +1,6 @@
+## Node Module
+`npm install`
+
 ## JSON Server
 `npm install -g json-server` - `json-server --watch heroes.json`
 
