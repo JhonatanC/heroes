@@ -1,1 +1,144 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+footer {
+    border-top: 1px dashed #9c9c9c;
+    display: flex;
+    padding: 2rem 0rem 4rem;
+    justify-content: space-between;
+    margin-top: 4rem;
+    font-size: .9rem;
+    ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        li {
+            margin-right: 1rem;
+            a {
+                text-decoration: none;
+                color: #191919;
+                &:hover {
+                    color: #000;
+                }
+            }
+        }
+    }
+}
+
+.loading {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+    position: absolute;
+    top: 45%;
+    left: 45%;
+}
+
+.nav-mobile-open{
+    display: none;
+}
+
+.search-icon{
+    height: 20px;
+    width: 20px;
+}
+
+.open-menu {
+    left: 0% !important;
+}
+
+.nav-mobile-close {
+    display: none !important;
+}
+
+.element-hide {
+    display: none !important;
+}
+
+.element-show {
+    display: none !important;
+}
+
+.btn-close {
+    top: 2rem !important;
+}
+
+.title-hero {
+    margin-top: 1.5rem;
+}
+
+@keyframes spin {
+    to {-webkit-transform: rotate(360deg); }
+    }
+    @-webkit-keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+}
+
+.redes {
+    display: flex;
+    align-items: center;
+    p {
+        margin: 0 .6rem;
+    }
+    img {
+        width: 25px;
+        margin: 0rem .6rem;
+    }
+}
+
+
+@media screen and (max-width: 780px) {
+    .element-hide {
+        display: none !important;
+    }
+    
+    .element-show {
+        display: block !important;
+    }
+    .hero__items{
+        position: fixed;
+        width: 80%;
+        background: #191919;
+        left: -100%;
+        top: 0px;
+        bottom: 0;
+        z-index: 10;
+        transition: all .2s ease-out;
+        ul {
+            flex-direction: column;
+            padding: 2rem;
+            li {
+                margin: 1rem !important;
+            }
+        }
+    }
+    .nav-mobile-open,
+    .nav-mobile-close {
+        display: block;
+        cursor: pointer;
+        background: #fff;
+        width: 50px;
+        height: 50px;
+        padding: 1rem;
+        border-radius: 50%;
+        transition: all .2s ease-out;
+        position: fixed;
+        top: 2rem;
+        right: 1rem;
+        &:hover {
+            transform: scale(1.1);
+            box-sizing: 2px 2px 5px #191919;
+        }
+    }
+    .nav-mobile-close {
+        display: none;
+    }
+    
+}
+

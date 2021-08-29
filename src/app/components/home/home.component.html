@@ -2,23 +2,37 @@
     <div class="container">
         <div class="hero__logo-nav">
             <div class="hero__logo">
-                <img src="../../../assets/img/logo.png" alt="">
+                <a routerLink="/home">
+                    <img src="../../../assets/img/logo.png" alt="">
+                </a>
             </div>
             <nav class="hero__items">
                 <ul>
                     <li><a href="#">Heroes Anterioes</a></li>
                     <li><a href="#">¿Cómo funciona?</a></li>
                     <li><a href="#">Iniciar sesión</a></li>
+                    <li class="search-desktop">
+                        <a href="#">
+                            <img class="search-icon" src="../../../assets/icons/search-solid.svg" alt="">
+                        </a>
+                    </li>
+                    <li class="search-mobile">
+                        <input class="form-control" type="text" placeholder="¿Qué estás buscando?">
+                        <img src="../../../assets/icons/search-solid-gray.svg" alt="">
+                    </li>
                 </ul>
             </nav>
+            <img (click)="menu()" class="nav-mobile-open" src="../../../assets/icons/bars-solid.svg" alt="">
+            <img (click)="menu()" class="nav-mobile-close" src="../../../assets/icons/times-solid.svg" alt="">
         </div>
 
         <div class="row">
-            <div class="col-md-6 content-votes">
-                <div class="content-votes__blur">
+            <div *ngIf="optionsVote" class="col-md-6 content-votes">
+                <div *ngIf="loading" class="loading"></div>
+                <div *ngIf="!loading" class="content-votes__blur">
                     <p class="content-votes__opinion">Dinos tu opinión sobre <span>Ironman?</span></p>
                     <p class="content-votes__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente inventore asperiores corrupti consequatur optio, officia voluptate tempore, dolorum expedita facere veritatis, vitae animi repellat iure molestias cumque. Odio, placeat quo.</p>
-                    <p class="content-votes__more-info"><a href="#"> Más Información </a></p>
+                    <p class="content-votes__more-info"> <img src="../../../assets/icons/wikipedia-w-brands.svg" alt=""> <a href="#"> Más Información </a></p>
                     <p class="content-votes__qas">¿Cuál es tu voto?</p>
                     <div class="content-votes__buttons">
                         <button (click)="like(heroe)" class="content-votes__like btn btn-like">
@@ -30,24 +44,80 @@
                     </div>
                 </div>
             </div>
+            <div *ngIf="dislikeVote" class="col-md-6 content-dislike">
+                <div class="content-votes__blur">
+                    <h3>Marvel - <strong> Ironman </strong> </h3>
+                    <div class="content-dislike__icon-feedback">
+                        <img class="img-down" src="../../../assets/icons/thumbs-down-solid.svg" alt="Like">
+                        <h4>Tu voto <br> ha sido registrado!</h4>
+                    </div>
+                    <p class="content-dislike__text">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore minima accusamus assumenda, nobis reiciendis qui sunt aperiam, explicabo sapiente neque necessitatibus deleniti cumque nisi doloribus consectetur! Asperiores saepe debitis quibusdam.
+                    </p>
+
+                    <a (click)="voteAgain()" class="content-dislike__vote-again" routerLink="#"> << Volver a votar</a>
+                </div>
+            </div>
+
+            <div *ngIf="likeVote" class="col-md-6 content-like">
+                <div class="content-votes__blur">
+                    <h3>Marvel - <strong> Ironman </strong> </h3>
+                    <div class="content-dislike__icon-feedback">
+                        <img  class="img-up" src="../../../assets/icons/thumbs-up-solid.svg" alt="Like">
+                        <h4>Tu voto <br> ha sido registrado!</h4>
+                    </div>
+                    <p class="content-dislike__text">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore minima accusamus assumenda, nobis reiciendis qui sunt aperiam, explicabo sapiente neque necessitatibus deleniti cumque nisi doloribus consectetur! Asperiores saepe debitis quibusdam.
+                    </p>
+
+                    <a (click)="voteAgain()" class="content-dislike__vote-again" routerLink="#"> << Volver a votar</a>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="percent-votes">
         <div class="percent-votes__likes" [style.width]="heroe.like">
-            <img src="../../../assets/icons/thumbs-up-solid.svg" alt="Like"> <small> 88% </small>
+            <img src="../../../assets/icons/thumbs-up-solid.svg" alt="Like"> <small> {{ heroe.like }} </small>
         </div>
         <div class="percent-votes__dislikes" [style.width]="heroe.dislike">
-            <img src="../../../assets/icons/thumbs-down-solid.svg" alt="Like"> <small> 12% </small>
+            <img src="../../../assets/icons/thumbs-down-solid.svg" alt="Like"> <small> {{ heroe.dislike }} </small>
         </div>
     </div>
 </div>
 
 <div class="container">
 
+    <div class="alert alert-warning alert-dismissible fade show alert-home" role="alert">
+        <h3>Lorem Ipsum Dolor <span>IP lorem ip.</span></h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, nemo officiis laborum ducimus, minus sed reprehenderit ut aut, hic vitae aperiam dolorem rem ea sit odio tenetur ad aliquid consequuntur!</p>
+        <button (click)="closeAlert()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 
-    <h2>Super Heroes anterioes</h2>
+
+    <h2 class="title-hero">Super Heroes anterioes</h2>
 
     <app-heroes-anterioes></app-heroes-anterioes>
+
+    <footer>
+        <div class="politicas">
+            <ul>
+                <li>
+                    <a href="">Términos y condiciones</a>
+                </li>
+                <li>
+                    <a href="">Política de tratamiento de datos</a>
+                </li>
+                <li>
+                    <a href="">Contáctenos</a>
+                </li>
+            </ul>
+        </div>
+        <div class="redes">
+            <p>Síguenos</p>
+            <img src="../../../assets/icons/facebook-square-brands.svg" alt="">
+            <img src="../../../assets/icons/twitter-brands.svg" alt="">
+        </div>
+    </footer>
 
 </div>

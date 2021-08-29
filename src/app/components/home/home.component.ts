@@ -9,12 +9,27 @@ import { HeroeService } from 'src/app/services/heroe.service';
 export class HomeComponent implements OnInit {
 
   heroe:any  = [];
+  dislikeVote:boolean = false;
+  likeVote:boolean = false;
+  optionsVote:boolean = true;
+  loading:boolean = false;
 
 
   constructor( private _heroes: HeroeService ) { }
 
   ngOnInit(): void {
     this.heroeHero();
+  }
+
+  menu(){
+    const nav = document.querySelector('.hero__items');
+    nav.classList.toggle('open-menu');
+
+    const menuOpen = document.querySelector('.nav-mobile-open');
+    menuOpen.classList.toggle('element-hide');
+
+    const menuClose = document.querySelector('.nav-mobile-close');
+    menuClose.classList.toggle('element-show');
   }
 
   heroeHero(){
@@ -27,21 +42,50 @@ export class HomeComponent implements OnInit {
   }
 
   like(data) {
-    
-    data.like = data.like.slice( 0, -1 )
-    data.dislike = data.dislike.slice( 0, -1 )
+    this.loading = true;
 
-    data.like++;
-    data.dislike++;
-
-    let objetoHeroe = {};
-    objetoHeroe = { ...data, like: `${data.like}%`, dislike: `${data.dislike}%` };
-
-    this._heroes.voteHeroe(objetoHeroe).subscribe();
+    setTimeout( () =>{
+      this.loading = false;
+      let like = parseInt( data.like.slice( 0, -1 ) );
+      let dislike = parseInt( data.dislike.slice( 0, -1 ) );
+  
+      let objetoHeroe = {};
+      objetoHeroe = { ...data, like: `${like += 1}`, dislike: `${dislike -= 1}` };
+  
+      this._heroes.voteHeroe(objetoHeroe).subscribe();
+      this.likeVote = true;
+      this.optionsVote = false;
+      this.heroeHero();
+    }, 1500)
   }
 
-  dislike(id) {
-    console.log(id)
+  dislike(data) {
+    this.loading = true;
+
+    setTimeout( ()=>{
+      this.loading = false;
+      let like = parseInt( data.like.slice( 0, -1 ) );
+      let dislike = parseInt( data.dislike.slice( 0, -1 ) );
+  
+      let objetoHeroe = {};
+      objetoHeroe = { ...data, like: `${like -= 1}`, dislike: `${dislike += 1}` };
+  
+      this._heroes.voteHeroe(objetoHeroe).subscribe();
+      this.dislikeVote = true;
+      this.optionsVote = false;
+      this.heroeHero();
+    }, 1500)
+  }
+
+  voteAgain(){
+    this.dislikeVote = false;
+    this.likeVote = false;
+    this.optionsVote = true;
+  }
+
+  closeAlert(){
+    const alertHome = document.querySelector('.alert-home');
+    alertHome.classList.toggle('element-hide');
   }
 
 }
